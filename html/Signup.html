@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signupstyle.css">
+    <title>Sign Up Form</title>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"  required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <button type="button" onclick="submitSignupForm()">Sign Up</button>
+        </form>
+    </div>
+    <script>
+        function submitSignupForm() {
+        
+            var form = document.getElementById('signupForm');
+            var firstName = document.getElementById('firstName');
+            var lastName = document.getElementById('lastName');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            var confirmPassword = document.getElementById('confirmPassword');
+        
+            if(!firstName.value || !lastName.value || !email.value || !password.value || !confirmPassword.value) {
+                alert('All fields are required.');
+                return false;
+            }
+        
+       
+            if(password.value !== confirmPassword.value) {
+                alert('Passwords do not match.');
+        
+               
+                form.reset();
+        
+                return false;
+            }
+            
+      
+            localStorage.setItem('email', email.value);
+            localStorage.setItem('password', password.value);
+        
+        
+            window.location.href = 'login.html';
+        }
+        
+    </script>
+    
+</body>
+</html>

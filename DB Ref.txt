@@ -1,0 +1,9 @@
+User Table
+
+	userID,   firstname,   lastname,   email,   password,   profile_picture	
+
+
+
+Post Table
+
+    postID,   userID,   content,   created,   postType	
